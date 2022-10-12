@@ -1,0 +1,49 @@
+<div class="relative bg-white">
+  <div class="mx-auto px-4 sm:px-6">
+    <div class="flex justify-center items-center py-6 md:justify-start md:space-x-10">
+      {%- comment -%}
+        STORE NAME / STORE LOGO
+      {%- endcomment -%}
+      <div class="flex justify-start lg:flex-1 truncate">
+        <h1 class="text-xl font-bold truncate">
+          {{ shop.name }}
+        </h1>
+      </div>
+      {%- comment -%}
+        NAVIGATION MENU
+      {%- endcomment -%}
+      <div class="hidden md:flex space-x-10">
+        {% for link in section.settings.menu.links %}
+          {% if link.links != blank %}
+            <div class="relative">
+              <button class="inline-flex items-center">
+                {{ link.title }}
+              </button>
+            </div>
+
+          {% endif %}
+        {% endfor %}
+      </div>
+      {%- comment -%}
+        CART BUTTON / ACCOUNT LINKS IF ENABLED
+      {%- endcomment -%}
+
+
+    </div>
+  </div>
+
+</div>
+
+{% schema %}
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "menu",
+        "default": "main-menu",
+        "label": "Heading Navigation Menu"
+      }
+    ]
+  }
+{% endschema %}
